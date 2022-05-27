@@ -1,6 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 export default function Home() {
+  useEffect(()=>{
+    fetch("http://localhost:3001/api/users/secretclub",{
+      headers:{
+        authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvZUBqb2Uuam9lIiwiaWQiOjEsImlhdCI6MTY1MzY4MjQ1NywiZXhwIjoxNjUzNjg5NjU3fQ.fh6CWxZ45kZmgYw6AWhxdiAUCWOmtmwGstdQGCktHYs"
+      }
+    }).then(res=>res.json()).then(data=>{
+      console.log(data);
+    })
+  },[])
   return (
     <div>
       <h1>Home Page</h1>
